@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website Title</title>
+</head>
+<body>
+
+    <h1>Courses</h1>
+    <ul id="courseContainer"></ul>
+    <script type="text/javascript">
+        const url = 'http://localhost:5001'
+        fetch(url).then(response => response.json()).then(data => {
+            const courses = data.courses;
+            let courseListContent = "";
+            courses.forEach(course => {
+                courseListContent += `<li>${course}</li>`;
+                console.log(courseListContent)
+            });
+            document.getElementById('courseContainer').innerHTML = courseListContent;
+        }).catch(error => console.log(error))
+        
+
+    </script>
+
+</body>
+</html>
